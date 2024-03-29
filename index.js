@@ -21,3 +21,38 @@ function checkName(name){
         return "Bad Name";
     }
 }
+
+function deleteInvalids(array) {
+
+    if (!Array.isArray(array)) {
+      return "Input must be an array";
+    }
+  
+    const numberArray = [];
+  
+    for (let i = 0; i < array.length; i++) {
+      const value = array[i];
+  
+      if (typeof value === 'number' && isFinite(value)) {
+        numberArray.push(value);
+      }
+    }
+  
+    return numberArray;
+  }
+
+  function password(Obj) {
+    if (typeof Obj !== 'object' || Obj === null) {
+      return "invalid";
+    }
+  
+    const { name, birthYear, siteName } = Obj;
+    if (!name || !birthYear || !siteName) {
+      return "invalid";
+    }
+
+    const password = `${siteName}#${name}@${birthYear}`;
+  
+    return password;
+  }
+  
