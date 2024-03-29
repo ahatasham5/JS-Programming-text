@@ -41,7 +41,7 @@ function deleteInvalids(array) {
     return numberArray;
   }
 
-  function password(Obj) {
+function password(Obj) {
     if (typeof Obj !== 'object' || Obj === null) {
       return "invalid";
     }
@@ -54,5 +54,33 @@ function deleteInvalids(array) {
     const password = `${siteName}#${name}@${birthYear}`;
   
     return password;
+  }
+  
+function monthlySavings(arr, livingCost) {
+    if (!Array.isArray(arr)) {
+      return "invalid";
+    }
+  
+    if (typeof livingCost !== 'number') {
+      return "invalid";
+    }
+  
+    let totalIncome = 0;
+    for (let i = 0; i < arr.length; i++) {
+      totalIncome += arr[i];
+    }
+  
+    let taxAmount = 0;
+    if (totalIncome > 3000) {
+      taxAmount = totalIncome * 0.2;
+    }
+  
+    const savings = totalIncome - taxAmount - livingCost;
+  
+    if (savings < 0) {
+      return "Earn more";
+    } else {
+      return savings;
+    }
   }
   
